@@ -1,0 +1,379 @@
+//Problem 1 xml TestCases
+<?xml version = "1.0" encoding = "UTF-8"?>
+<!DOCTYPE TinyKayak SYSTEM "TinyKayakType.dtd">
+
+<TinyKayak>
+
+	<Customers>
+
+		<Customer passportNumber="P1">
+			<Name>
+				Pang
+			</Name>
+			<DOB>
+				7/5/1997
+			</DOB>
+			<Address>
+				<Street>
+					930 63rd Street
+				</Street>
+				<City>
+					Brooklyn
+				</City>
+				<State>
+					New York
+				</State>
+				<ZipCode>
+					11219
+				</ZipCode>
+			</Address>
+			<Address>
+				<Street>
+					247 American Campus Drive
+				</Street>
+				<City>
+					Buffalo
+				</City>
+				<State>
+					New York
+				</State>
+				<ZipCode>
+					14228
+				</ZipCode>
+			</Address>
+			<CustomerFTOrders CustomerOrderNumber="ON1">
+			</CustomerFTOrders>
+		</Customer>
+
+		<Customer passportNumber="P2">
+			<Name>
+				Pang
+			</Name>
+			<DOB>
+				7/5/1997
+			</DOB>
+			<Address>
+				<Street>
+					930 63rd Street
+				</Street>
+				<City>
+					Brooklyn
+				</City>
+				<State>
+					New York
+				</State>
+				<ZipCode>
+					11219
+				</ZipCode>
+			</Address>
+			<Address>
+				<Street>
+					247 American Campus Drive
+				</Street>
+				<City>
+					Buffalo
+				</City>
+				<State>
+					New York
+				</State>
+				<ZipCode>
+					14228
+				</ZipCode>
+			</Address>
+			<CustomerFTOrders CustomerOrderNumber="ON1">
+			</CustomerFTOrders>
+		</Customer>
+	</Customers>
+
+	<Customers>
+
+		<Customer passportNumber="P3">
+			<Name>
+				Pang
+			</Name>
+			<DOB>
+				7/5/1997
+			</DOB>
+			<Address>
+				<Street>
+					930 63rd Street
+				</Street>
+				<City>
+					Brooklyn
+				</City>
+				<State>
+					New York
+				</State>
+				<ZipCode>
+					11219
+				</ZipCode>
+			</Address>
+			<Address>
+				<Street>
+					247 American Campus Drive
+				</Street>
+				<City>
+					Buffalo
+				</City>
+				<State>
+					New York
+				</State>
+				<ZipCode>
+					14228
+				</ZipCode>
+			</Address>
+			<CustomerFTOrders CustomerOrderNumber="ON1">
+			</CustomerFTOrders>
+		</Customer>
+
+		<Customer passportNumber="P4">
+			<Name>
+				Pang
+			</Name>
+			<DOB>
+				7/5/1997
+			</DOB>
+			<Address>
+				<Street>
+					930 63rd Street
+				</Street>
+				<City>
+					Brooklyn
+				</City>
+				<State>
+					New York
+				</State>
+				<ZipCode>
+					11219
+				</ZipCode>
+			</Address>
+			<Address>
+				<Street>
+					247 American Campus Drive
+				</Street>
+				<City>
+					Buffalo
+				</City>
+				<State>
+					New York
+				</State>
+				<ZipCode>
+					14228
+				</ZipCode>
+			</Address>
+			<CustomerFTOrders CustomerOrderNumber="ON1">
+			</CustomerFTOrders>
+		</Customer>
+	</Customers>
+
+	<AirLineInformations>
+
+		<AirLineInformation airlineCode="AC1">
+			<airlineName>
+				Delta
+			</airlineName>
+
+		</AirLineInformation>
+
+		<AirLineInformation airlineCode="AC3">
+			<airlineName>
+				United
+			</airlineName>
+		</AirLineInformation>
+
+	</AirLineInformations>
+
+	<AirLineInformations>
+
+		<AirLineInformation airlineCode="AC2">
+			<airlineName>
+				China
+			</airlineName>
+		</AirLineInformation>
+
+		<AirLineInformation airlineCode="AC4">
+			<airlineName>
+				Taiwan
+			</airlineName>
+		</AirLineInformation>
+
+	</AirLineInformations>
+
+	<FlightTicketBookings>
+
+		<FlightTicketBooking OrderNumber="ON1">
+			<airlineCode FlightTicketBookingairlineCode="AC3">
+				3
+			</airlineCode>
+			<airlineCode FlightTicketBookingairlineCode="AC4">
+				4
+			</airlineCode>
+			<paymentType paymentType="CreditCard">
+			</paymentType>
+		</FlightTicketBooking>
+
+		<FlightTicketBooking OrderNumber="ON2">
+			<airlineCode FlightTicketBookingairlineCode="AC3">
+				3
+			</airlineCode>
+			<paymentType paymentType="Check" />
+		</FlightTicketBooking>
+
+	</FlightTicketBookings>
+
+	<FlightTicketBookings>
+
+		<FlightTicketBooking OrderNumber="ON3">
+			<airlineCode FlightTicketBookingairlineCode="AC3">
+				3
+			</airlineCode>
+			<paymentType paymentType="CreditCard">
+			</paymentType>
+		</FlightTicketBooking>
+
+		<FlightTicketBooking OrderNumber="ON4">
+			<airlineCode FlightTicketBookingairlineCode="AC3">
+				3
+			</airlineCode>
+			<paymentType paymentType="Check" />
+		</FlightTicketBooking>
+
+	</FlightTicketBookings>
+
+</TinyKayak>
+
+
+//Problem 1 DTD
+<?xml version = "1.0" encoding = "UTF-8"?>
+
+	<!ELEMENT TinyKayak (Customers*,AirLineInformations*,FlightTicketBookings*)>
+
+	<!ELEMENT Customers (Customer+)>
+	<!ELEMENT Customer (Name,DOB,Address+,CustomerFTOrders+)>
+	<!ATTLIST Customer passportNumber ID  #REQUIRED>
+	<!ELEMENT Name (#PCDATA)>
+	<!ELEMENT DOB (#PCDATA)>
+	<!ELEMENT Address (Street,City,State,ZipCode)>
+	<!ELEMENT Street (#PCDATA)>
+	<!ELEMENT City (#PCDATA)>
+	<!ELEMENT State (#PCDATA)>
+	<!ELEMENT ZipCode (#PCDATA)>
+	<!ATTLIST CustomerFTOrders CustomerOrderNumber IDREF #IMPLIED>
+	<!ELEMENT CustomerFTOrders (#PCDATA)>
+
+	<!ELEMENT AirLineInformations (AirLineInformation+)>
+	<!ELEMENT AirLineInformation (airlineName)>
+	<!ELEMENT airlineName (#PCDATA)>
+	<!ATTLIST AirLineInformation airlineCode ID #REQUIRED>
+
+
+	<!ELEMENT FlightTicketBookings (FlightTicketBooking+)>
+	<!ELEMENT FlightTicketBooking (airlineCode+,paymentType)>
+	<!ATTLIST FlightTicketBooking OrderNumber ID #REQUIRED >
+	<!ATTLIST airlineCode FlightTicketBookingairlineCode IDREF #IMPLIED>
+	<!ELEMENT airlineCode (#PCDATA)>
+	<!ATTLIST paymentType paymentType  (CreditCard|Check|DebitCard) #REQUIRED>
+	<!ELEMENT paymentType (#PCDATA)>
+
+Problem 2 Xquery
+//XML TestCases
+
+<?xml version = "1.0" encoding = "UTF-8"?>
+<!DOCTYPE Buildings SYSTEM "BuildingsType.dtd">
+
+<Buildings>
+	<building id="b1">
+		<department>CSE</department>
+		<department>EE</department>
+		<name>Davis</name>
+		<type>Teaching</type>
+		<type>Library</type>
+		<year>2000</year>
+	</building>
+	<building id="b2">
+		<department>Common Area</department>
+		<department>CSE</department>
+		<department>EE</department>
+		<name>Capen</name>
+		<type>library</type>
+		<year>2000</year>
+	</building>
+	<building id="b3">
+		<department>Common Area</department>
+		<department>CSE</department>
+		<department>EE</department>
+		<department>Dorm</department>
+		<name>GoodYear</name>
+		<type>library</type>
+		<year>1999</year>
+	</building>
+	<building id="b4">
+		<department>CSE</department>
+		<department>EE</department>
+		<name>Baldy</name>
+		<type>Teaching</type>
+		<type>Library</type>
+		<year>2019</year>
+	</building>
+	<building id="b5">
+		<department>EE</department>
+		<name>NSC</name>
+		<type>Teaching</type>
+		<year>1990</year>
+	</building>
+	<building id="b6">
+		<department>Common Area</department>
+		<department>CSE</department>
+		<department>EE</department>
+		<name>SilverMan</name>
+		<type>library</type>
+		<year>1990</year>
+	</building>
+	<building id="b7">
+		<department>Common Area</department>
+		<department>CSE</department>
+		<department>EE</department>
+		<name>LockWood</name>
+		<type>library</type>
+		<year>2000</year>
+	</building>
+</Buildings>
+
+//DTD Part
+<?xml version = "1.0" encoding = "UTF-8"?>
+	<!ELEMENT buildings (building*)>
+	<!ELEMENT building (department+,name,type+,year)>
+	<!ATTLIST building id ID #REQUIRED>
+	<!ELEMENT department (#PCDATA)>
+	<!ELEMENT name (#PCDATA)>
+	<!ELEMENT type (#PCDATA)>
+	<!ELEMENT year (#PCDATA)>
+
+1.Find all the buildings which are used only as a library, i.e, the type is "library"
+//Xquery
+for $x in doc("buildings.xml")/Buildings/building
+where $x/type = "library"
+return $x/name
+
+2.Find all the buildings which are used by both CSE department and EE department.
+//Xquery
+for $x in doc("buildings.xml")/Buildings/building
+where $x/department = "CSE"
+ and $x/department ="EE"
+return $x/name
+
+3. For every department, find the department name and the total number of buildings
+built in 2000 the department is using, you can ignore those departments that are
+not using any building built in 2000, the result should be sorted in lexicographical
+order by the department name
+
+//Xquery
+let $depts := doc("buildings.xml")/Buildings/building[year = "2000"]/department
+for $dept in distinct-values($depts)
+(:$depts contains distinct copy of department from all the possible departments:)
+(:$dept all the possible departments not distinct:)
+(:count how many times they equal to each other, $depts and $dept,
+in this way they count how many times each department appears in all the possible departments:)
+let $count := count($depts[. =$dept])
+order by $dept ascending
+return ($dept,$count)
